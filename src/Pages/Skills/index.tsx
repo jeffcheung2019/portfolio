@@ -9,7 +9,7 @@ import { colors } from 'Utils/constants';
 
 const Skills = () => {
 
-    return <Grid container alignContent="flex-start" p="40px">
+    return <Grid container alignContent="flex-start" p="80px">
         <Grid container item xs={12}>
             <Typography variant="h4">
                 Skills
@@ -90,6 +90,14 @@ const skillValues: SkillValue[] = [
         toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
         descs: [
             "▶ Have over 3 years of experience of using react.js to develop websites"
+        ],
+    },
+    {
+        name: "Angular js",
+        value: 50,
+        toolUrl: "https://logojinni.com/image/logos/angular-555.svg",
+        descs: [
+            "▶ Have < 0.5 year of experience"
         ],
     },
     {
@@ -199,7 +207,6 @@ const skillValues: SkillValue[] = [
         toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png",
         descs: [
             "▶ Help created dapp project metagod's zoomable & interactable landsale map using only canvas",
-            "▶ Help developed many server side projects using express.js"
         ],
     },
 

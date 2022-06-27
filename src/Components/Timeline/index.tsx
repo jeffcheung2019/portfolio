@@ -41,8 +41,8 @@ const Timeline = (props: TimelineProps) => {
                     alignContent="center" justifyContent="center"
                     sx={{
                         borderRadius: 99,
-                        width: 16,
-                        height: 16,
+                        width: 32,
+                        height: 32,
                         cursor: "pointer",
                         position: "absolute",
                         "&:hover": {
@@ -57,13 +57,14 @@ const Timeline = (props: TimelineProps) => {
                             position: "absolute",
                             top: "50%",
                             left: "50%",
-                            height: 8,
-                            width: 8,
+                            height: 20,
+                            width: 20,
                             zIndex: 2,
                             backgroundColor: "#fff",
                             borderRadius: 99,
                             transform: `translate(-50%, -50%)`,
                             "&:hover": {
+                                opacity: 0.5
                             }
                         }}
                     />

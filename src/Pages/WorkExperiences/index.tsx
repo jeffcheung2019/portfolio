@@ -21,13 +21,19 @@ const jobDetail = {
 
 const companyInfo = [
     {
-        imgUrl: `https://www.vicosys.com.hk/wp-content/uploads/2015/09/vicosys_fb_highrez_share.png`
+        toolUrls: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
+        ]
     },
     {
-        imgUrl: `https://media.glassdoor.com/sqll/4212816/ky-and-company-squarelogo-1623254470711.png`
+        toolUrls: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
+        ]
     },
     {
-        imgUrl: `https://www.cinchblock.com/img/logo/chb.png`
+        toolUrls: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
+        ]
     }
 ]
 
@@ -114,14 +120,14 @@ const WorkExperiences = () => {
         setCurrTab(tabIdx)
     }
 
-    return <Grid container alignContent="flex-start" p="40px">
+    return <Grid container alignItems="center" justifyContent="center" p="80px">
         <Grid container item xs={12}>
             <Typography variant="h4">
                 Work Experiences
             </Typography>
         </Grid>
 
-        <Grid container item xs={12} spacing={2}>
+        <Grid container item xs={12} spacing={2} justifyContent="center">
             <Grid container item xs={8} flexDirection="row">
                 <Grid container item xs={12} px="10px" position="relative" height="100px" justifyContent={"center"} alignItems="center">
                     <Timeline
@@ -149,7 +155,7 @@ const WorkExperiences = () => {
                 {workExps()}
             </Grid>
 
-            <Grid container item xs={4} flexDirection="row" alignItems="center" justifyContent="center">
+            {/* <Grid container item xs={4} flexDirection="row" alignItems="center" justifyContent="center">
                 <Box key={`Company-${new Date().getTime()}`} sx={{
                     backgroundImage: `url(${companyInfo[currTab].imgUrl})`,
                     backgroundSize: "contain",
@@ -159,7 +165,7 @@ const WorkExperiences = () => {
                     height: "50%",
                     animation: `appearFromRight 1s`
                 }} />
-            </Grid>
+            </Grid> */}
 
         </Grid>
 

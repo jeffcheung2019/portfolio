@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import About from 'Pages/About';
 import Home from 'Pages/Home';
 import NotFound from 'Pages/NotFound';
@@ -13,26 +13,43 @@ import { colors } from 'Utils/constants';
 
 const Layout = () => {
     return <Grid container height="100%">
-        <Grid container item xs={12}>
+        {/* <Grid container item xs={12}>
             <GlobalHeader />
-        </Grid>
+        </Grid> */}
 
         <Grid container item xs={12}
             sx={{
-                padding: "20px 40px",
                 backgroundColor: colors.spaceCadet,
-                height: `calc(100% - ${headerHeight})`
             }}>
-            <PageRoutes />
+            <Home />
         </Grid>
 
-        <Box 
+        <Box
             sx={{
                 position: "fixed",
                 right: "40px",
-                bottom: "0px"
+                bottom: "0px",
+                textOrientation: "upright",
+                backgroundColor: colors.wildBlueYonder,
+                height: "200px",
+                width: "3px",
+                opacity: 0.2
             }}
-        />
+        >
+        </Box>
+        <Box
+            sx={{
+                position: "fixed",
+                right: "30px",
+                bottom: "0px",
+                textOrientation: "upright",
+                backgroundColor: colors.wildBlueYonder,
+                height: "100px",
+                width: "3px",
+                opacity: 0.2
+            }}
+        >
+        </Box>
     </Grid>
 }
 
