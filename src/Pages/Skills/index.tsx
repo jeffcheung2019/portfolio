@@ -1,71 +1,107 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography, Card } from '@mui/material';
 import { headerHeight } from 'Layout/GlobalHeader';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import map from 'lodash/map'
-// @ts-ignore
-import Card from 'react-animated-3d-card'
 
 import { colors } from 'Utils/constants';
+import { useParallax } from 'react-scroll-parallax';
+import ProgressBar from "@ramonak/react-progress-bar";
 
-const Skills = () => {
+type SkillsProps = {
+    pageRefs: {
+        coverRef: React.MutableRefObject<HTMLDivElement | null>,
+        aboutRef: React.MutableRefObject<HTMLDivElement | null>,
+        skillsRef: React.MutableRefObject<HTMLDivElement | null>,
+    }
+}
 
-    return <Grid container alignContent="flex-start" p="80px">
-        <Grid container item xs={12}>
-            <Typography variant="h4">
-                Skills
-            </Typography>
-        </Grid>
+const skillValNames: string[] = [
+    "Frontend",
+    "Backend",
+    "Database",
+    "Cloud services"
+]
 
-        <Grid container item xs={12} spacing={3} py="20px" sx={{animation: "appear 2s"}}>
+const Skills: FC<SkillsProps> = ({ pageRefs }) => {
+
+    let coverClientHeight: number | undefined = pageRefs?.coverRef?.current?.clientHeight
+    let aboutClientHeight: number | undefined = pageRefs?.aboutRef?.current?.clientHeight
+
+    const { ref: parallaxRef } = useParallax<HTMLDivElement>({
+        // easing: 'easeInOut',
+        // translateY: [0, 100],
+
+        startScroll: (coverClientHeight !== undefined ? coverClientHeight : 0),
+        endScroll: (coverClientHeight !== undefined ? coverClientHeight : 0) +
+            (aboutClientHeight !== undefined ? aboutClientHeight : 0),
+        translateX: [100, 0],
+        opacity: [0, 1],
+        rootMargin: {
+            top: 0, left: 0, right: 0,
+            bottom: 200
+        }
+    });
+
+    return <Grid overflow="hidden" container alignContent="flex-start" p={["10px", "80px"]}>
+        <Grid ref={parallaxRef} container item xs={12} py="20px" spacing={3}>
             {
-                map(skillValues, (skillVal, idx) => {
-                    return <Grid container item xs={6} md={3} key={`SkillVal-${idx}`} sx={{
-                        "& .parallax-card, &>div": {
-                            width: "100%",
-                        }
-                    }}>
-                        <Card shineStrength={0.9} cursorPointer style={{
-                            width: "100%",
-                            borderRadius: 8,
-                            height: "300px",
+                map([frontendSkillValues, backendSkillValues, dbSkillValues, cloudServicesSkillValues], (skillVals, idx) => {
+                    return <Grid container item xs={12} spacing={3} key={`SkillVal-${idx}`}
+                        sx={{
+                            animation: "appear 2s",
                         }}>
-                            <Grid container item xs={12} alignItems="flex-start" py="20px" px="20px" height="90%">
-                                <Grid container item xs={4} alignItems="center" height="50px">
-                                    <Box sx={{
-                                        backgroundImage: `url(${skillVal.toolUrl})`,
-                                        height: "50px",
-                                        width: "50px",
-                                        backgroundSize: "contain",
-                                        backgroundRepeat: "no-repeat",
-                                        backgroundPosition: "center",
-                                    }} />
-                                </Grid>
-                                <Grid container item xs={8} alignItems="center" height="50px">
-                                    <Typography fontSize={"16px"}>
-                                        {skillVal.name}
-                                    </Typography>
-                                </Grid>
-
-                                <Grid container item xs={12} alignItems="flex-start" mt="24px" height={"calc(100% - 50px)"}>
-                                    {
-                                        skillVal.descs.map((desc, sIdx) => {
-                                            return <Typography fontSize={"12px"}>
-                                                {desc}
-                                            </Typography>
-                                        })
+                        <Grid container item xs={12}>
+                            <Typography sx={{
+                                fontSize: [20, 26, 32]
+                            }}>{skillValNames[idx]}</Typography>
+                        </Grid>
+                        {
+                            map(skillVals, (skillVal, sIdx) => {
+                                return <Grid container item xs={6} md={3} key={`SkillVal-${idx}-${sIdx}`} sx={{
+                                    cursor: "pointer",
+                                    transition: "all ease-in-out 0.5s",
+                                    "&:hover": {
+                                        transform: "scale(1.1)"
                                     }
+                                }}>
+                                    <Card elevation={4} sx={{
+                                        width: "100%",
+                                        borderRadius: "10px",
+                                    }}>
+                                        <Grid container item xs={12} alignItems="flex-start" py="20px" px="20px" height="90%">
+                                            <Grid container item xs={4} alignItems="center" height="50px">
+                                                <Box sx={{
+                                                    backgroundImage: `url(${skillVal.toolUrl})`,
+                                                    height: "50px",
+                                                    width: "50px",
+                                                    backgroundSize: "contain",
+                                                    backgroundRepeat: "no-repeat",
+                                                    backgroundPosition: "center",
+                                                }} />
+                                            </Grid>
+                                            <Grid container item xs={8} alignItems="center" height="50px">
+                                                <Typography fontSize={"16px"} sx={{
+                                                }}>
+                                                    {skillVal.name}
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid container item xs={12} alignItems="center" position="relative" height="10%">
+                                            <Box sx={{
+                                                backgroundColor: colors.gainsboro,
+                                                height: "4px", width: "30%",
+                                                bottom: 0, right: 0,
+                                                position: "absolute",
+                                            }} />
 
+                                        </Grid>
+                                    </Card>
                                 </Grid>
-                            </Grid>
-                            <Grid container item xs={12} alignItems="center" height="10%">
-                                <Box sx={{
-                                    backgroundColor: colors.gainsboro, 
-                                    height: "4px", width: "140px"
-                                }}/>
-                            </Grid>
-                        </Card>
-                    </Grid>
 
+                            })
+                        }
+
+                    </Grid>
                 })
             }
 
@@ -77,140 +113,99 @@ const Skills = () => {
 
 type SkillValue = {
     name: string
-    value: number
     toolUrl: string
-    descs: string[]
 }
 
 
-const skillValues: SkillValue[] = [
+const frontendSkillValues: SkillValue[] = [
     {
         name: "React js",
-        value: 100,
         toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
-        descs: [
-            "▶ Have over 3 years of experience of using react.js to develop websites"
-        ],
     },
     {
-        name: "Angular js",
-        value: 50,
+        name: "Angular",
         toolUrl: "https://logojinni.com/image/logos/angular-555.svg",
-        descs: [
-            "▶ Have < 0.5 year of experience"
-        ],
     },
     {
         name: "React Native",
-        value: 90,
-        toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
-        descs: [
-            "▶ Help created hiking social media app called Bamily",
-            "▶ Built a fitness app for blockchain move-to-earn app called Fitevo",
-            "▶ Have experiences of creating animation, UI, notification, authentication, deep linking for mobile app.",
-
-        ],
+        toolUrl: "https://www.datocms-assets.com/45470/1631026680-logo-react-native.png",
     },
     {
-        name: "Firebase",
-        toolUrl: "https://www.gstatic.com/devrel-devsite/prod/v1a2d2d725c48303ffd65eb7122e57032dbf9bb148227658cacdfddf0dcae1e46/firebase/images/touchicon-180.png",
-        descs: [
-            "▶ Deploy testable IOS & Android App to testers using app distribution",
-            "▶ Used firebase crashlytics to log error from mobile app",
-            "▶ Used firebase Cloud messaging to deliver remote message to end users"
-        ],
-        value: 80,
+        name: "SCSS",
+        toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png",
+    },
+    {
+        name: "Javascript",
+        toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png",
     },
     {
         name: "Typescript",
-        value: 90,
         toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/512px-Typescript_logo_2020.svg.png",
-        descs: [
-            "▶ Mostly used in react & react native projects"
-        ],
+    },
+
+]
+
+const backendSkillValues: SkillValue[] = [
+
+
+    {
+        name: "Express.js",
+        toolUrl: "https://res.cloudinary.com/practicaldev/image/fetch/s--KkScstnJ--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zojuy79lo3fn3qdt7g6p.png",
+    },
+
+]
+
+
+const dbSkillValues: SkillValue[] = [
+
+    {
+        name: "Elastic Search",
+        toolUrl: "https://ci-jie.github.io/images/Elasticsearch&ObejctStorage/Elasticsearch.png",
     },
     {
         name: "MongoDB",
-        value: 90,
         toolUrl: "https://www.ictdemy.com/images/5728/mdb.png",
-        descs: [
-            "▶ Have over 2 years of experience writing complex queries"
-        ],
+    },
+    {
+        name: "SQL",
+        toolUrl: "https://thumbs.dreamstime.com/b/sql-database-icon-logo-design-ui-ux-app-orange-inscription-shadow-96841969.jpg",
+    },
+
+]
+
+const cloudServicesSkillValues: SkillValue[] = [
+    {
+        name: "Firebase",
+        toolUrl: "https://www.gstatic.com/devrel-devsite/prod/v1a2d2d725c48303ffd65eb7122e57032dbf9bb148227658cacdfddf0dcae1e46/firebase/images/touchicon-180.png",
     },
     {
         name: "AWS Lambda",
         toolUrl: "https://i.imgur.com/gwQtHO5.png",
-        descs: [
-            "▶ Serverless API (AWS SAM) & S3 Trigger Layer for getting gif & png thumbnail from video",
-        ],
-        value: 50,
     },
     {
         name: "AWS S3",
         toolUrl: "https://miro.medium.com/max/333/1*1A1CQ8a-vKphpDu97_U6Kw.png",
-        descs: [
-            "▶ Wrote API that allow user to put their video into S3 via signed Url",
-        ],
-        value: 50,
     },
     {
         name: "AWS Amplify",
         toolUrl: "https://panduz.net/wp-content/uploads/2021/01/amplify.png",
-        descs: [
-            "▶ Integrate with AWS Cognito to provide social login options for mobile app",
-        ],
-        value: 50,
     },
     {
         name: "AWS Cloudformation",
         toolUrl: "https://la-tech.co/post/hypermodern-cloudformation/cloudformation.png",
-        descs: [
-            "▶ Wrote deployment scripts, templates & integrate all needed AWS serivces",
-        ],
-        value: 60,
     },
     {
         name: "AWS Elasticache",
         toolUrl: "https://d2908q01vomqb2.cloudfront.net/887309d048beef83ad3eabf2a79a64a389ab1c9f/2021/08/10/AWS_ElastiCache_Icon-1.png",
-        descs: [
-            "▶ Deploy redis cluster for caching data fetched from AWS Dynamodb",
-        ],
-        value: 60,
     },
     {
         name: "AWS Dynamodb",
         toolUrl: "https://symbiotics.co.za/wp-content/uploads/2021/07/t_aws-dynamodb5235.jpg",
-        descs: [
-            "▶ Normal CRUD operations like storing user, video inforamtion",
-        ],
-        value: 60,
     },
     {
-        name: "SQL",
-        value: 90,
-        toolUrl: "https://thumbs.dreamstime.com/b/sql-database-icon-logo-design-ui-ux-app-orange-inscription-shadow-96841969.jpg",
-        descs: [
-            "▶ Have over 2 years of experience writing complex queries"
-        ],
+        name: "AWS Cloudfront",
+        toolUrl: "https://www.shareicon.net/download/2015/08/28/92179_content_512x512.png",
     },
-    {
-        name: "SCSS",
-        value: 80,
-        toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png",
-        descs: [
-            "▶ Have over 1 year of working experiences writing scss",
-        ],
-    },
-    {
-        name: "Javascript",
-        value: 80,
-        toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png",
-        descs: [
-            "▶ Help created dapp project metagod's zoomable & interactable landsale map using only canvas",
-        ],
-    },
-
-    
 ]
 
 

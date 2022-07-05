@@ -5,17 +5,17 @@ import NotFound from 'Pages/NotFound';
 import PageRoutes from 'Pages/PageRoutes';
 import Skills from 'Pages/Skills';
 import WorkExperiences from 'Pages/WorkExperiences';
-import React from 'react';
+import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import GlobalHeader from './GlobalHeader';
 import { headerHeight } from 'Layout/GlobalHeader';
 import { colors } from 'Utils/constants';
 
-const Layout = () => {
+type LayoutProps = {
+
+}
+const Layout: FC<LayoutProps> = () => {
     return <Grid container height="100%">
-        {/* <Grid container item xs={12}>
-            <GlobalHeader />
-        </Grid> */}
 
         <Grid container item xs={12}
             sx={{
@@ -24,7 +24,7 @@ const Layout = () => {
             <Home />
         </Grid>
 
-        <Box
+        {/* <Box
             sx={{
                 position: "fixed",
                 right: "40px",
@@ -46,11 +46,12 @@ const Layout = () => {
                 backgroundColor: colors.wildBlueYonder,
                 height: "100px",
                 width: "3px",
-                opacity: 0.2
+                opacity: 0.2,
+
             }}
         >
-        </Box>
-    </Grid>
+        </Box> */}
+    </Grid >
 }
 
 export default Layout

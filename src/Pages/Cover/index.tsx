@@ -1,17 +1,24 @@
 import { Box, ButtonBase, Grid, Typography } from '@mui/material';
 import { headerHeight } from 'Layout/GlobalHeader';
 import times from 'lodash/times';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { colors, routeNames, routes } from 'Utils/constants';
 
 
 let intervalTimer: NodeJS.Timer
 
-const Cover = () => {
+type CoverProps = {
+    pageRefs: {
+        coverRef: any,
+        aboutRef: any,
+        skillsRef: any,
+    }
+}
+
+const Cover : FC<CoverProps> = (props) => {
     const canvasRef = useRef<null | HTMLCanvasElement>(null)
 
-    const navigate = useNavigate()
     const [showUnderline, setShowUnderline] = useState(false)
 
     const onMouseOver = () => setShowUnderline(true)
@@ -19,7 +26,7 @@ const Cover = () => {
     const onMouseLeave = () => setShowUnderline(false)
 
     const onExploreMoreClick = () => {
-        navigate(routes.About)
+        props?.pageRefs?.aboutRef?.current?.scrollIntoView({behavior: "smooth"})
     }
 
     useEffect(() => {
@@ -30,13 +37,15 @@ const Cover = () => {
         ctx.canvas.width = window.innerWidth;
         ctx.canvas.height = window.innerHeight;
         
-        let codeDtls = times(100).map(() => {
+        let codeDtlsMax = 100
+        let codeDtls = times(10).map(() => {
             return {
                 x: Math.random() * canvas.width - 40,
                 y: Math.random() * canvas.height,
                 codeIdx: Math.floor(Math.random() * codes.length),
                 fontSize: Math.floor(Math.random() * 12 + 12),
-                codeColorIdx: Math.floor(Math.random() * codeColors.length)
+                codeColorIdx: Math.floor(Math.random() * codeColors.length),
+                strIdx: 0
             }
         })
         
@@ -45,7 +54,7 @@ const Cover = () => {
             ctx.canvas.height = window.innerHeight;
         }
         window.addEventListener("resize", onResizeCanvas)
-
+        let intervalCnt = 0
         intervalTimer = setInterval(() => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -58,7 +67,8 @@ const Cover = () => {
                         y: Math.random() * canvas.height,
                         codeIdx: Math.floor(Math.random() * codes.length),
                         fontSize: Math.floor(Math.random() * 12 + 12),
-                        codeColorIdx: Math.floor(Math.random() * codeColors.length)
+                        codeColorIdx: Math.floor(Math.random() * codeColors.length),
+                        strIdx: 0
                     }
                 }
                 codeDtls[i].x += 1
@@ -67,7 +77,23 @@ const Cover = () => {
                 ctx.shadowColor = codeColors[codeDtls[i].codeColorIdx]
                 ctx.shadowOffsetX = 1;
                 ctx.shadowOffsetY = 1;
-                ctx.fillText(codes[codeDtls[i].codeIdx], codeDtls[i].x, codeDtls[i].y);
+                codeDtls[i].strIdx += 1
+                let showAwaitVerticalLine = codeDtls[i].strIdx < codes[codeDtls[i].codeIdx].length
+                ctx.fillText(
+                    `${codes[codeDtls[i].codeIdx].substring(0, codeDtls[i].strIdx)} ${showAwaitVerticalLine ? "|" : ""}`,
+                 codeDtls[i].x, codeDtls[i].y);
+            }
+            intervalCnt++;
+            
+            if(intervalCnt % 3 === 0 && codeDtls.length < codeDtlsMax){
+                codeDtls.push({
+                    x: Math.random() * canvas.width - 40,
+                    y: Math.random() * canvas.height,
+                    codeIdx: Math.floor(Math.random() * codes.length),
+                    fontSize: Math.floor(Math.random() * 12 + 12),
+                    codeColorIdx: Math.floor(Math.random() * codeColors.length),
+                    strIdx: 0
+                })
             }
 
         }, 1000 / 10)
@@ -91,8 +117,8 @@ const Cover = () => {
             zIndex: 1,
         }} />
         <Grid container item xs={12} position="absolute" zIndex={2}>
-            <Grid container item xs={12} height="60px" justifyContent="center">
-                <Typography fontSize={"36px"}>
+            <Grid container item xs={12} height={["38px", "60px"]} justifyContent="center">
+                <Typography fontSize={["18px", "36px"]}>
                     Hello, I am
                 </Typography>
                 <Box
@@ -101,14 +127,15 @@ const Cover = () => {
                     sx={{
                         position: "relative",
                         paddingLeft: "10px",
+                        paddingRight: "10px",
                         cursor: "pointer"
                     }}>
                     <Typography sx={{
                         color: `${colors.aquamarine} !important`,
-                    }} fontSize={"36px"}>Jeff Cheung</Typography>
+                    }} fontSize={["18px", "36px"]}>Jeff Cheung</Typography>
                     <Box sx={{
                         height: "2px",
-                        width: showUnderline ? "95%" : "0%",
+                        width: showUnderline ? "82%" : "0%",
                         position: "absolute",
                         bottom: 8,
                         backgroundColor: colors.aquamarine,
@@ -117,7 +144,7 @@ const Cover = () => {
                 </Box>
             </Grid>
             <Grid container item xs={12} height="60px" justifyContent="center">
-                <Typography fontSize={"36px"}>
+                <Typography fontSize={["18px", "36px"]}>
                     I am a full stack developer.
                 </Typography>
             </Grid>
@@ -126,9 +153,9 @@ const Cover = () => {
                     border: `1px solid ${colors.aquamarine}`,
                     borderRadius: "6px",
                     color: colors.aquamarine,
-                    width: "180px",
-                    height: "60px",
-                    fontSize: "20px",
+                    width: ["120px", "180px"],
+                    height:["40px" ,"60px"],
+                    fontSize: ["16px", "20px"],
                     transition: "all ease-in-out 0.5s",
                     fontFamily: "Nunito",
                     fontWeight: "bold",
@@ -154,6 +181,11 @@ export default Cover
 
 const codes = [
     "<div>",
+    "<html></html>",
+    "keyframe",
+    "@include",
+    "@-webkit-keyframes",
+    "@-moz-keyframes",
     "<br />",
     "@import",
     "<script></script>",
@@ -177,14 +209,22 @@ const codes = [
     "docker",
     "javascript",
     "html",
-    "css",
-    "scss",
-    "sass",
     "export",
     "debug",
     "Math.random()",
-    "Update table",
     "def function",
+    "throw new Error()",
+    "function()",
+    "Case 'a':",
+    "call(r,e)",
+    "this.selector",
+    "v.map(e => {console.log(e)})",
+    "apply([],o)",
+    "v.merge(r,e)",
+    "return;",
+    "prototype={constructor:}",
+    "e!=null",
+    "window.addEventListener('resize', () => {})"
 ]
 
 const codeColors = [

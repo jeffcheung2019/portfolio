@@ -2,20 +2,12 @@ export const routes : {
     [key: string]: string;
 } = {
     Home: "/",
-    About: "/about",
-    Skills: "/skills",
-    Experiences: "/experiences",
-
 }
 
 export const routeNames : {
     [key: string]: string;
 } = {
-    Cover: "Cover",
     Home: "Home",
-    About: "About",
-    Skills: "Skills",
-    Experiences: "Experiences",
 }
 
 export const colors = {

@@ -6,15 +6,18 @@ import { BrowserRouter } from 'react-router-dom';
 import './Styles/Animations.scss'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import theme from 'Theme/MaterialUiTheme'
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 function App() {
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <Layout />
-        </BrowserRouter>
-      </ThemeProvider>
+      <ParallaxProvider>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <Layout />
+          </BrowserRouter>
+        </ThemeProvider>
+      </ParallaxProvider>
 
     </div>
   );

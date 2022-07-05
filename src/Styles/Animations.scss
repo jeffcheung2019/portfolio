@@ -16,26 +16,66 @@
     }
 }
 
+@include keyframe(upperArrowMoveUp){
+    0% {
+        opacity: 1;
+        bottom: 140px;
+    }
+    50% {
+        opacity: 0;
+        bottom: 180px;
+    }
+    100% {
+        opacity: 0;
+        bottom: 50px;
+    }
+}
 
-@include keyframe (appear){
+@include keyframe(lowerArrowMoveUp){
+    0% {
+        opacity: 1;
+        bottom: 90px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 140px;
+    }
+}
+
+@include keyframe (hueRotateInf) {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(360deg);
+    }
+
+    100% {
+        filter: hue-rotate(0deg);
+    }
+}
+
+@include keyframe (appear) {
     0% {
         transform: translateY(20px);
-        opacity:0;
+        opacity: 0;
     }
+
     100% {
         transform: translateY(0px);
-        opacity:1;
+        opacity: 1;
     }
 }
 
-@include keyframe (appearFromRight){
+@include keyframe (appearFromRight) {
     0% {
         transform: translateX(20px);
-        opacity:0;
+        opacity: 0;
     }
+
     100% {
         transform: translateY(0px);
-        opacity:1;
+        opacity: 1;
     }
 }
-

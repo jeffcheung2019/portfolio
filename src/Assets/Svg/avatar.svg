@@ -1,0 +1,118 @@
+<svg width="264" height="280" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path d="M12 160a120 120 0 1 0 240 0h12V0H0v160h12Z" id="react-path-9088306" />
+    <path d="M124 145v18h4c40 0 72 32 72 72v9H0v-9c0-40 32-72 72-72h4v-18c-17-9-30-25-32-45-6-1-10-6-10-12V74c0-6 4-11 10-12v-6a56 56 0 1 1 112 0v6c6 1 10 6 10 12v14c0 6-4 11-10 12-2 20-15 36-32 45Z" id="react-path-9088307" />
+    <circle id="react-path-9088305" cx="120" cy="120" r="120" />
+  </defs>
+  <g id="Avataaar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Avataaar/Circle">
+      <g id="Avataaar" stroke-width="1" fill-rule="evenodd" mask="url(#react-mask-9088309)">
+        <g id="Body" transform="translate(32 36)">
+          <mask id="react-mask-9088310" fill="#fff">
+            <use xlink:href="#react-path-9088307" />
+          </mask>
+          <use fill="#D0C6AC" xlink:href="#react-path-9088307" />
+          <g id="Skin/👶🏽-03-Brown" mask="url(#react-mask-9088310)" fill="#EDB98A">
+            <path d="M0 0h264v280H0z" id="Color" />
+          </g>
+          <path d="M156 79v23a56 56 0 1 1-112 0V79v15a56 56 0 1 0 112 0V79Z" id="Neck-Shadow" fill-opacity=".1" fill="#000" mask="url(#react-mask-9088310)" />
+        </g>
+        <g id="Clothing/Blazer-+-Sweater" transform="translate(0 170)">
+          <defs>
+            <path d="M105 29h-1c-40 0-72 32-72 72v9h200v-9c0-40-32-72-72-72h-1v3c0 14-12 25-27 25s-27-11-27-25v-3Z" id="react-path-9088311" />
+          </defs>
+          <mask id="react-mask-9088312" fill="#fff">
+            <use xlink:href="#react-path-9088311" />
+          </mask>
+          <use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#react-path-9088311" />
+          <g id="Color/Palette/Black" mask="url(#react-mask-9088312)" fill-rule="evenodd" fill="#262E33">
+            <path id="🖍Color" d="M0 0h264v110H0z" />
+          </g>
+          <g id="Blazer" stroke-width="1" fill-rule="evenodd" transform="translate(32 28)">
+            <path d="M69 1C31 3 0 34 0 73v9h69a155 155 0 0 1 0-81Zm63 81h68v-9c0-38-30-70-68-72a157 157 0 0 1 0 81Z" id="Saco" fill="#3A4C5A" />
+            <path d="m149 58 10-7h4l7 5-21 2Z" id="Pocket-hanky" fill="#E6E6E6" />
+            <path d="M69 0c-4 19-2 47 5 82H58L44 46l6-9-6-6L63 1l6-1Z" id="Wing" fill="#2F4351" />
+            <path d="M151 0c-4 19-2 47 5 82h-16l-14-36 6-9-6-6 19-30 6-1Z" id="Wing" fill="#2F4351" transform="matrix(-1 0 0 1 282 0)" />
+          </g>
+          <path d="M156 22c7 4 11 11 11 18s-4 14-11 19l-6-5h-5l1-3c6-3 10-8 10-14V22Zm-48 0c-7 4-11 11-11 18s4 14 11 19l6-5h5l-1-3c-6-3-10-8-10-14V22Z" id="Collar" fill="#F2F2F2" fill-rule="evenodd" />
+        </g>
+        <g id="Face" transform="translate(76 82)" fill="#000">
+          <g id="Mouth/Smile" transform="translate(2 52)">
+            <defs>
+              <path d="M35 15a19 19 0 0 0 38 0l-2-2H37l-2 2Z" id="react-path-9088313" />
+            </defs>
+            <mask id="react-mask-9088314" fill="#fff">
+              <use xlink:href="#react-path-9088313" />
+            </mask>
+            <use id="Mouth" fill-opacity=".7" fill="#000" fill-rule="evenodd" xlink:href="#react-path-9088313" />
+            <rect id="Teeth" fill="#FFF" fill-rule="evenodd" mask="url(#react-mask-9088314)" x="39" y="2" width="31" height="16" rx="5" />
+            <g id="Tongue" stroke-width="1" fill-rule="evenodd" mask="url(#react-mask-9088314)" fill="#FF4F6D">
+              <g transform="translate(38 24)">
+                <circle cx="11" cy="11" r="11" />
+                <circle cx="21" cy="11" r="11" />
+              </g>
+            </g>
+          </g>
+          <g id="Nose/Default" transform="translate(28 40)" fill-opacity=".2">
+            <path d="M16 8c0 4 5 8 12 8s12-4 12-8" id="Nose" />
+          </g>
+          <!-- <g id="Eyes/Default" transform="translate(0 8)" fill-opacity=".6">
+            <circle id="Eye" cx="30" cy="22" r="6" />
+            <circle id="Eye" cx="82" cy="22" r="6" />
+          </g> -->
+          <g id="Eyebrow/Outline/Default" fill-opacity=".6">
+            <g id="I-Browse" transform="translate(12 6)" fill-rule="nonzero">
+              <path d="M4 11c4-5 14-8 24-6a2 2 0 0 0 0-4C18-2 5 2 0 9a2 2 0 0 0 4 2Z" id="Eyebrow" />
+              <path d="M62 11c4-5 14-8 24-6a2 2 0 0 0 0-4C76-2 63 2 58 9a2 2 0 0 0 4 2Z" id="Eyebrow" transform="matrix(-1 0 0 1 146 0)" />
+            </g>
+          </g>
+        </g>
+        <g id="Top" stroke-width="1" fill-rule="evenodd">
+          <defs>
+            <path id="react-path-9088319" d="M0 0h264v280H0z" />
+            <path d="M94 52h-1 1m100 19a63 63 0 0 0-4-18l-2-5c-1-1 1-3 1-5v-5c-1-4-4-8-8-9l-4-1-2-3c-2-3-5-4-8-4h-3l-3-3c-1-1-3-3-5-3-4-3-9-5-14-5-10-2-20-1-29 2l-13 5-4 1-9 2a16 16 0 0 0-6 26c2 1 2 1 1 3a53 53 0 0 0-9 36l1 9 1 5 2 1c2-1 1-2 1-3l1-17 5-12 10-13c1-1 1-2 3-2l3 1 6 1 11 1c8 0 15-1 22-3l14-5 1-1 2 2 8 4c3 2 0-1 1 2l1 2 5 6c2 1 5 2 6 4l2 5 6 12 4 9c0 1-2 9 1 7l2-5 1-8 1-16" id="react-path-9088318" />
+            <filter x="-.8%" y="-2%" width="101.5%" height="108%" filterUnits="objectBoundingBox" id="react-filter-9088315">
+              <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1" />
+              <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1" result="shadowMatrixOuter1" />
+              <feMerge>
+                <feMergeNode in="shadowMatrixOuter1" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <mask id="react-mask-9088317" fill="#fff">
+            <use xlink:href="#react-path-9088319" />
+          </mask>
+          <g id="Top/Short-Hair/Short-Curly" mask="url(#react-mask-9088317)">
+            <g transform="translate(-1)">
+              <mask id="react-mask-9088316" fill="#fff">
+                <use xlink:href="#react-path-9088318" />
+              </mask>
+              <use id="Short-Hair" stroke="none" fill="#28354B" fill-rule="evenodd" xlink:href="#react-path-9088318" />
+              <g id="Skin/👶🏽-03-Brown" mask="url(#react-mask-9088316)" fill="#2C1B18">
+                <path d="M0 0h264v280H0z" id="Color" />
+              </g>
+              <g id="Top/_Resources/Prescription-02" fill="none" transform="translate(62 85)" stroke-width="1">
+                <defs>
+                  <filter x="-.8%" y="-2.4%" width="101.5%" height="109.8%" filterUnits="objectBoundingBox" id="react-filter-9088320">
+                    <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1" />
+                    <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" in="shadowOffsetOuter1" result="shadowMatrixOuter1" />
+                    <feMerge>
+                      <feMergeNode in="shadowMatrixOuter1" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <g id="Wayfarers" filter="url(#react-filter-9088320)" transform="translate(6 7)" fill="#252C2F" fill-rule="nonzero">
+                  <path d="M34 41h-3C17 41 9 33 9 21 9 10 11 0 33 0h2c22 0 24 10 24 21 0 12-10 20-25 20ZM32 6c-19 0-19 7-19 16 0 7 3 15 18 15h3c12 0 21-6 21-15S55 6 36 6h-4Z" id="Left" />
+                  <path d="M96 41h-3c-14 0-22-8-22-20 0-11 2-21 24-21h2c22 0 24 10 24 21 0 12-10 20-25 20ZM94 6c-19 0-19 7-19 16 0 7 3 15 18 15h3c12 0 21-6 21-15s0-16-19-16h-4Z" id="Right" />
+                  <path d="M3 6c1-1 8-6 30-6 17 0 21 2 27 5l5 1 5-1c6-3 13-5 28-5 21 0 28 5 29 6 2 0 3 1 3 3v3c0 1-1 2-3 2 0 0-7 0-7 3s-2-4-2-5V9c-3-2-10-4-20-4-12 0-18 2-23 4v2l-2 5-3-1H60l-2 2-3-6V9c-4-2-8-4-22-4-11 0-18 2-21 4v3c0 1-3 8-3 5s-6-3-6-3c-2 0-3-1-3-2V9c0-2 1-3 3-3Z" id="Stuff" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
