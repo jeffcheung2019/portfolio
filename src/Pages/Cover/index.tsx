@@ -135,9 +135,9 @@ const Cover : FC<CoverProps> = (props) => {
                     }} fontSize={["18px", "36px"]}>Jeff Cheung</Typography>
                     <Box sx={{
                         height: "2px",
-                        width: showUnderline ? "82%" : "0%",
+                        width: showUnderline ? "90%" : "0%",
                         position: "absolute",
-                        bottom: 8,
+                        bottom: 0,
                         backgroundColor: colors.aquamarine,
                         transition: "all 0.5s"
                     }} />
