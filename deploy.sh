@@ -1,1 +1,1 @@
-npm run build && aws s3 sync build/ s3://react-static-content
+npm run build && aws s3 sync --delete build/ s3://react-static-content
