@@ -8,9 +8,10 @@ let arrowBase64 = `url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM
 
 type FooterProps = {
     pageRefs: {
-        coverRef: any,
-        aboutRef: any,
-        skillsRef: any,
+        coverRef: React.MutableRefObject<HTMLDivElement | null>,
+        aboutRef: React.MutableRefObject<HTMLDivElement | null>,
+        skillsRef: React.MutableRefObject<HTMLDivElement | null>,
+        workExpRef: React.MutableRefObject<HTMLDivElement | null>,
     }
 }
 

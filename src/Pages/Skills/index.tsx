@@ -15,6 +15,7 @@ type SkillsProps = {
         coverRef: React.MutableRefObject<HTMLDivElement | null>,
         aboutRef: React.MutableRefObject<HTMLDivElement | null>,
         skillsRef: React.MutableRefObject<HTMLDivElement | null>,
+        workExpRef: React.MutableRefObject<HTMLDivElement | null>,
     }
 }
 
@@ -52,9 +53,7 @@ const Skills: FC<SkillsProps> = ({ pageRefs }) => {
     let aboutClientHeight: number | undefined = pageRefs?.aboutRef?.current?.clientHeight
 
     const { ref: parallaxRef } = useParallax<HTMLDivElement>({
-        // easing: 'easeInOut',
-        // translateY: [0, 100],
-
+        easing: 'easeInQuad',
         startScroll: (coverClientHeight !== undefined ? coverClientHeight : 0),
         endScroll: (coverClientHeight !== undefined ? coverClientHeight : 0) +
             (aboutClientHeight !== undefined ? aboutClientHeight : 0),
@@ -69,7 +68,7 @@ const Skills: FC<SkillsProps> = ({ pageRefs }) => {
 
     return <Grid overflow="hidden" container alignContent="flex-start" p={["10px", "80px"]}>
         <Grid ref={parallaxRef} container item xs={12} py="20px" spacing={3}>
-            <Grid container item xs={12} lg={5} justifyContent="center" alignItems="center" pr="20px">
+            {/* <Grid container item xs={12} lg={5} justifyContent="center" alignItems="center" pr="20px">
                 <Card elevation={4} sx={{
                     borderRadius: "10px",
                     height: "100%",
@@ -85,9 +84,9 @@ const Skills: FC<SkillsProps> = ({ pageRefs }) => {
                         size={450}
                     />
                 </Card>
-            </Grid>
+            </Grid> */}
 
-            <Grid container item xs={12} lg={7}>
+            <Grid container item xs={12} lg={12}>
 
                 {
                     map([frontendSkillValues, backendSkillValues, dbSkillValues, cloudServicesSkillValues], (skillVals, idx) => {
@@ -132,7 +131,7 @@ const Skills: FC<SkillsProps> = ({ pageRefs }) => {
                                                     </Typography>
                                                 </Grid>
                                             </Grid>
-                                            <Grid container item xs={12} alignItems="center" position="relative" height="10%">
+                                            {/* <Grid container item xs={12} alignItems="center" position="relative" height="10%">
                                                 <Box sx={{
                                                     backgroundColor: colors.gainsboro,
                                                     height: "4px", width: "30%",
@@ -140,7 +139,7 @@ const Skills: FC<SkillsProps> = ({ pageRefs }) => {
                                                     position: "absolute",
                                                 }} />
 
-                                            </Grid>
+                                            </Grid> */}
                                         </Card>
                                     </Grid>
 
@@ -205,10 +204,7 @@ const backendSkillValues: SkillValue[] = [
         name: "Express.js",
         toolUrl: "https://res.cloudinary.com/practicaldev/image/fetch/s--KkScstnJ--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zojuy79lo3fn3qdt7g6p.png",
     },
-    {
-        name: "Spring boot",
-        toolUrl: "https://jovepater.com/wp-content/uploads/2022/04/51ae022dd976554c4136946e79b844a7.png",
-    },
+ 
 ]
 
 
@@ -246,20 +242,46 @@ const cloudServicesSkillValues: SkillValue[] = [
     },
     {
         name: "AWS Amplify",
-        toolUrl: "https://panduz.net/wp-content/uploads/2021/01/amplify.png",
+        toolUrl: "https://miro.medium.com/max/1400/0*y-ZimaRh8fnftZVZ",
     },
     {
         name: "AWS Cloudformation",
         toolUrl: "https://la-tech.co/post/hypermodern-cloudformation/cloudformation.png",
     },
     {
-        name: "AWS Elasticache",
-        toolUrl: "https://d2908q01vomqb2.cloudfront.net/887309d048beef83ad3eabf2a79a64a389ab1c9f/2021/08/10/AWS_ElastiCache_Icon-1.png",
+        name: "AWS Redis",
+        toolUrl: "https://dwglogo.com/wp-content/uploads/2017/12/1100px_Redis_Logo_01.png",
     },
     {
         name: "AWS Cloudfront",
         toolUrl: "https://www.shareicon.net/download/2015/08/28/92179_content_512x512.png",
     },
+    {
+        name: "AWS Opensearch",
+        toolUrl: "https://opensearch.org/assets/opensearch-twitter-card.png",
+    },
+    {
+        name: "AWS RDS",
+        toolUrl: "https://miro.medium.com/max/800/1*KqNnfYtaVshGXbuGUCTOQw.png",
+    },
+    {
+        name: "AWS VPC",
+        toolUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/AWS_Simple_Icons_Virtual_Private_Cloud.svg/1200px-AWS_Simple_Icons_Virtual_Private_Cloud.svg.png",
+    },
+    {
+        name: "AWS API gateway",
+        toolUrl: "https://awsvideocatalog.com/images/aws/png/PNG%20Light/Networking%20&%20Content%20Delivery/Amazon-API-Gateway.png",
+    },
+    {
+        name: "AWS Cognito",
+        toolUrl: "https://www.drupal.org/files/styles/grid-3-2x/public/project-images/553dbabbd287c26ca83aef42.jpg?itok=ruAqqobg",
+    },
+    {
+        name: "AWS EC2",
+        toolUrl: "https://cdn.quantiphi.com/2020/05/aws_ec2-1.jpg",
+    },
+
+    
 ]
 
 

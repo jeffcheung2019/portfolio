@@ -14,6 +14,7 @@ type AboutProps = {
         coverRef: React.MutableRefObject<HTMLDivElement | null>,
         aboutRef: React.MutableRefObject<HTMLDivElement | null>,
         skillsRef: React.MutableRefObject<HTMLDivElement | null>,
+        workExpRef: React.MutableRefObject<HTMLDivElement | null>,
     },
     isVisible: boolean
 }
@@ -67,7 +68,10 @@ const About: FC<AboutProps> = ({ pageRefs, isVisible }) => {
 
             <Grid container item xs={12} px={["40px", "80px", "250px", "300px"]} py="30px" justifyContent="center" alignItems="center">
                 <Typography fontSize={[14, 16, 18]} sx={{ textAlign: "center !important" }}>
-                    Hi, My name is jeff cheung. I am a fullstack developer from Hong Kong.
+                    Hi, My name is jeff cheung.
+                </Typography>
+                <Typography fontSize={[14, 16, 18]} sx={{ textAlign: "center !important" }}>
+                    I am a fullstack developer from Hong Kong.
                 </Typography>
                 <Typography fontSize={[14, 16, 18]} sx={{ textAlign: "center !important" }}>
                     I am an extremely curious and self-motivated individual, passionate about knowing how everything in web & mobile app development works. Just focusing on frontend / backend can't satisfy my curiosity.

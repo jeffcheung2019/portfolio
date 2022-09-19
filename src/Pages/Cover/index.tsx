@@ -10,9 +10,10 @@ let intervalTimer: NodeJS.Timer
 
 type CoverProps = {
     pageRefs: {
-        coverRef: any,
-        aboutRef: any,
-        skillsRef: any,
+        coverRef: React.MutableRefObject<HTMLDivElement | null>,
+        aboutRef: React.MutableRefObject<HTMLDivElement | null>,
+        skillsRef: React.MutableRefObject<HTMLDivElement | null>,
+        workExpRef: React.MutableRefObject<HTMLDivElement | null>,
     }
 }
 
@@ -145,9 +146,10 @@ const Cover : FC<CoverProps> = (props) => {
             </Grid>
             <Grid container item xs={12} height="60px" justifyContent="center">
                 <Typography fontSize={["18px", "36px"]}>
-                    I am a full stack developer.
+                    Full Stack Web {'&'} App Developer 
                 </Typography>
             </Grid>
+     
             <Grid container item xs={12} height="100px" pt="20px" justifyContent="center">
                 <ButtonBase sx={{
                     border: `1px solid ${colors.aquamarine}`,

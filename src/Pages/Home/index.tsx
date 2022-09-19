@@ -3,7 +3,7 @@ import { headerHeight } from 'Layout/GlobalHeader';
 import About from 'Pages/About';
 import Skills from 'Pages/Skills';
 import Cover from 'Pages/Cover';
-import WorkExperiences from 'Pages/WorkExperiences';
+import Works from 'Pages/Works';
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { routeNames, routes } from 'Utils/constants';
@@ -27,15 +27,18 @@ const Home = () => {
     const coverRef = useRef<HTMLDivElement | null>(null)
     const aboutRef = useRef<HTMLDivElement | null>(null)
     const skillsRef = useRef<HTMLDivElement | null>(null)
+    const workExpRef = useRef<HTMLDivElement | null>(null)
 
     const [coverIsVisible, setCoverIsVisible] = useState<boolean>(false)
     const [aboutIsVisible, setAboutIsVisible] = useState<boolean>(false)
     const [skillsIsVisible, setSkillsIsVisible] = useState<boolean>(false)
+    const [workExpIsVisible, setWorkExpIsVisible] = useState<boolean>(false)
 
     useEffect(() => {
         let coverRefCurr = coverRef?.current
         let aboutRefCurr = aboutRef?.current
         let skillsRefCurr = skillsRef?.current
+        let workExpRefCurr = workExpRef?.current
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -50,18 +53,20 @@ const Home = () => {
             })
         });
 
-        if (coverRefCurr && aboutRefCurr && skillsRefCurr) {
-            observer.observe(coverRefCurr);
-            observer.observe(aboutRefCurr);
-            observer.observe(skillsRefCurr);
-            return () => {
-                observer.unobserve(coverRefCurr!);
-                observer.unobserve(aboutRefCurr!);
-                observer.unobserve(skillsRefCurr!);
-            }
-        }
+        // if (coverRefCurr && aboutRefCurr && skillsRefCurr && workExpRefCurr) {
+        //     observer.observe(coverRefCurr);
+        //     observer.observe(aboutRefCurr);
+        //     observer.observe(skillsRefCurr);
+        //     observer.observe(workExpRefCurr);
+        //     return () => {
+        //         observer.unobserve(coverRefCurr!);
+        //         observer.unobserve(aboutRefCurr!);
+        //         observer.unobserve(skillsRefCurr!);
+        //         observer.unobserve(workExpRefCurr!);
+        //     }
+        // }
 
-    }, [coverRef, aboutRef, skillsRef])
+    }, [coverRef, aboutRef, skillsRef, workExpRef])
 
     return <Grid container ref={homeRef}>
         <Grid container item xs={12} height={`100vh`} ref={coverRef} id="cover">
@@ -69,6 +74,7 @@ const Home = () => {
                 coverRef,
                 aboutRef,
                 skillsRef,
+                workExpRef
             }} />
         </Grid>
 
@@ -78,6 +84,7 @@ const Home = () => {
                     coverRef,
                     aboutRef,
                     skillsRef,
+                    workExpRef
                 }}
                 isVisible={aboutIsVisible}
             />
@@ -88,6 +95,16 @@ const Home = () => {
                 coverRef,
                 aboutRef,
                 skillsRef,
+                workExpRef
+            }} />
+        </Grid>
+
+        <Grid container item xs={12} height={`auto`} ref={workExpRef} id="skills">
+            <Works pageRefs={{
+                coverRef,
+                aboutRef,
+                skillsRef,
+                workExpRef
             }} />
         </Grid>
 
@@ -96,6 +113,8 @@ const Home = () => {
                 coverRef,
                 aboutRef,
                 skillsRef,
+                workExpRef
+
             }}/>
         </Grid>
     </Grid>

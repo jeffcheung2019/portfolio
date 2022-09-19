@@ -4,7 +4,7 @@ import Home from 'Pages/Home';
 import NotFound from 'Pages/NotFound';
 import PageRoutes from 'Pages/PageRoutes';
 import Skills from 'Pages/Skills';
-import WorkExperiences from 'Pages/WorkExperiences';
+import Works from 'Pages/Works';
 import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import GlobalHeader from './GlobalHeader';
