@@ -47,21 +47,23 @@ const Works: FC<WorksProps> = () => {
     return <Grid container alignItems="center" justifyContent="center" p="80px">
         <Grid container item xs={12}>
             <Typography variant="h4">
-                Works
+                Recent Works
             </Typography>
         </Grid>
 
         <Grid container item xs={12} spacing={2} justifyContent="center">
             {
                 map(workDtls, (e, idx) => {
-                    return <Grid item container xs={4} key={`work-${idx}`}>
+                    return <Grid item container xs={6} key={`work-${idx}`}>
                         <Card sx={{
 
                         }}>
                             <Grid container item xs={12}>
                                 <Box 
                                     sx={{
-                                        background: `url(${e.uri})`
+                                        background: `url(${e.uri})`,
+                                        width: '100%',
+                                        height: 50,
                                     }}
                                 />
                             </Grid>
