@@ -1,57 +1,135 @@
-import { Box, Grid, Typography } from '@mui/material';
-import About from 'Pages/About';
-import Home from 'Pages/Home';
-import NotFound from 'Pages/NotFound';
-import PageRoutes from 'Pages/PageRoutes';
-import Skills from 'Pages/Skills';
-import Works from 'Pages/Works';
-import React, { FC } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import GlobalHeader from './GlobalHeader';
-import { headerHeight } from 'Layout/GlobalHeader';
-import { colors } from 'Utils/constants';
+import {
+  AppBar,
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  Grid,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import About from "Pages/About";
+import NotFound from "Pages/NotFound";
+import PageRoutes from "Pages/PageRoutes";
+import Skills from "Pages/Skills";
+import Projects from "Pages/Projects";
+import React, { FC, useState } from "react";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import GlobalHeader from "./GlobalHeader";
+import { headerHeight } from "Layout/GlobalHeader";
+import { colors, routeNames } from "Utils/constants";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ViewModuleIcon from "@mui/icons-material/ViewModule";
+import HomeIcon from "@mui/icons-material/Home";
+import TerminalIcon from "@mui/icons-material/Terminal";
+type LayoutProps = {};
 
-type LayoutProps = {
+const drawerWidth = 60;
 
-}
+const routeItems = [
+  {
+    name: "Home",
+    icon: <HomeIcon sx={{ color: colors.gainsboro }} />,
+    routeName: routeNames.Home,
+  },
+  {
+    name: "About",
+    icon: <AccountCircleIcon sx={{ color: colors.gainsboro }} />,
+    routeName: routeNames.About,
+  },
+  {
+    name: "Skills",
+    icon: <TerminalIcon sx={{ color: colors.gainsboro }} />,
+    routeName: routeNames.Skills,
+  },
+  {
+    name: "Projects",
+    icon: <ViewModuleIcon sx={{ color: colors.gainsboro }} />,
+    routeName: routeNames.Projects,
+  },
+];
 const Layout: FC<LayoutProps> = () => {
-    return <Grid container height="100%">
-
-        <Grid container item xs={12}
-            sx={{
-                backgroundColor: colors.spaceCadet,
-            }}>
-            <Home />
-        </Grid>
-
-        {/* <Box
-            sx={{
-                position: "fixed",
-                right: "40px",
-                bottom: "0px",
-                textOrientation: "upright",
-                backgroundColor: colors.wildBlueYonder,
-                height: "200px",
-                width: "3px",
-                opacity: 0.2
-            }}
+  const navigate = useNavigate();
+  const location = useLocation();
+  const onRouteItemClick = (routeName: string) => {
+    navigate(routeName);
+  };
+  return (
+    <Grid container height="100%">
+      {location.pathname === routeNames.Home ? null : (
+        <Drawer
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            overflow: "hidden",
+            opacity: 0.95,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: colors.spaceCadet,
+              borderColor: "transparent",
+              padding: "0px 8px",
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={true}
         >
-        </Box>
-        <Box
+          <List
             sx={{
-                position: "fixed",
-                right: "30px",
-                bottom: "0px",
-                textOrientation: "upright",
-                backgroundColor: colors.wildBlueYonder,
-                height: "100px",
-                width: "3px",
-                opacity: 0.2,
-
+              alignItems: "center",
+              width: "100%",
             }}
-        >
-        </Box> */}
-    </Grid >
-}
+          >
+            {routeItems.map((elem, index) => (
+              <ListItem key={elem.name} disablePadding>
+                <ListItemButton
+                  onClick={() => onRouteItemClick(elem.routeName)}
+                  sx={{
+                    justifyContent: "center",
+                  }}
+                >
+                  <Tooltip title={elem.name} placement="right">
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 40,
+                        justifyContent: "center",
+                      }}
+                    >
+                      {elem.icon}
+                    </ListItemIcon>
+                  </Tooltip>
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      )}
+      <Grid
+        container
+        item
+        height="100%"
+        sx={{
+          backgroundColor: colors.spaceCadet,
+          width:
+            location.pathname === routeNames.Home
+              ? "100%"
+              : `calc(100% - ${drawerWidth}px)`,
+        }}
+      >
+        <PageRoutes />
+      </Grid>
+    </Grid>
+  );
+};
 
-export default Layout
+export default Layout;

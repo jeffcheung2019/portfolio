@@ -22,4 +22,6 @@ html, body, #root{
 
 body{
   margin: var(--a);
+  height: 100vh;
+  width: 100%;
 }

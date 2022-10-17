@@ -5,6 +5,7 @@ import { colors, routes, routeNames } from 'Utils/constants';
 import map from 'lodash/map'
 export const headerHeight = "100px"
 
+
 const GlobalHeader = () => {
     const navigate = useNavigate()
     const onRouteClick = (routeName: string) => {

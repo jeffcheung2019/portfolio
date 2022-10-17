@@ -7,7 +7,10 @@ export const routes : {
 export const routeNames : {
     [key: string]: string;
 } = {
-    Home: "Home",
+    Home: "/",
+    About: "/about",
+    Projects: "/projects",
+    Skills: "/skills"
 }
 
 export const colors = {
