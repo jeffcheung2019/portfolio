@@ -1,9 +1,8 @@
 import { Box, ButtonBase, Fade, Grid, Typography } from "@mui/material";
-import { headerHeight } from "Layout/GlobalHeader";
 import times from "lodash/times";
 import React, { FC, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { colors, routeNames, routes } from "Utils/constants";
+import { colors, routeNames } from "Utils/constants";
 
 let intervalTimer: NodeJS.Timer;
 

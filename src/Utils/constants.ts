@@ -1,13 +1,7 @@
-export const routes : {
-    [key: string]: string;
-} = {
-    Home: "/",
-}
-
 export const routeNames : {
     [key: string]: string;
 } = {
-    Home: "/",
+    Home: "/portfolio",
     About: "/about",
     Projects: "/projects",
     Skills: "/skills"
