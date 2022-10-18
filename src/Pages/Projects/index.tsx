@@ -14,6 +14,7 @@ const workDtls = [
     uri: "",
     logo: "https://iili.io/tlKNwB.png",
     desc: "Personal mobile app side project that allow users to track their favourite stocks. Features include news notification subscription, company earning calendar and etc.",
+    videoUri: "https://www.youtube.com/watch?v=xU4JD3e8i4g",
   },
   {
     website: "FitEvo",
