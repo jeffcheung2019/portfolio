@@ -70,7 +70,7 @@ const Skills: FC<SkillsProps> = ({}) => {
                   <Grid container item xs={12}>
                     <Typography
                       sx={{
-                        fontSize: [20, 26, 32],
+                        fontSize: [20, 24, 28],
                       }}
                     >
                       {skillValNames[idx]}
