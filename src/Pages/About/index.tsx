@@ -6,9 +6,7 @@ import { colors } from "Utils/constants";
 import GoogleIcon from "@mui/icons-material/Google";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import "./index.scss";
-import AnimatedAvatar from "Components/AnimatedAvatar";
-import { useParallax } from "react-scroll-parallax";
-
+import programmerGif from "Assets/Images/programmer.gif";
 type AboutProps = {};
 
 const About: FC<AboutProps> = ({}) => {
@@ -30,7 +28,7 @@ const About: FC<AboutProps> = ({}) => {
         xs={12}
         md={6}
         sx={{
-          backgroundImage: `url(programmer.gif)`,
+          backgroundImage: `url(${programmerGif})`,
           backgroundSize: "contain",
           height: "40%",
           backgroundRepeat: "no-repeat",

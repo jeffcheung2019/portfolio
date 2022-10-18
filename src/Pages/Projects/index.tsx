@@ -59,15 +59,29 @@ const Projects: FC<ProjectsProps> = () => {
   };
 
   return (
-    <Grid container alignItems="center" justifyContent="center" p="40px">
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
+      p={["10px", "40px"]}
+    >
       <Grid container item xs={12}>
-        <Typography variant="h4">Projects</Typography>
+        <Typography variant="h4">Past Projects</Typography>
       </Grid>
 
       <Grid container item xs={12} spacing={2} justifyContent="flex-start">
         {map(workDtls, (e, idx) => {
           return (
-            <Grid item container xs={6} lg={4} key={`work-${idx}`} width="100%">
+            <Grid
+              item
+              container
+              xs={12}
+              md={6}
+              lg={4}
+              key={`work-${idx}`}
+              width="100%"
+              sx={{}}
+            >
               <Card
                 sx={{
                   padding: 4,
@@ -92,18 +106,20 @@ const Projects: FC<ProjectsProps> = () => {
                     <Typography>{e.website}</Typography>
                   </Grid>
                 )}
-                <Grid>
-                  <ButtonBase onClick={() => onProjectClick(e.uri)}>
-                    <Typography
-                      sx={{
-                        color: colors.gainsboro,
-                        textDecoration: "underline",
-                      }}
-                    >
-                      {e.uri}
-                    </Typography>
-                  </ButtonBase>
-                </Grid>
+                {e.uri === "" ? null : (
+                  <Grid>
+                    <ButtonBase onClick={() => onProjectClick(e.uri)}>
+                      <Typography
+                        sx={{
+                          color: colors.gainsboro,
+                          textDecoration: "underline",
+                        }}
+                      >
+                        {e.uri}
+                      </Typography>
+                    </ButtonBase>
+                  </Grid>
+                )}
                 <Grid container item xs={12}>
                   <Typography>{e.desc}</Typography>
                 </Grid>

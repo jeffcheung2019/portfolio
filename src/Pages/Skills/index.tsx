@@ -43,7 +43,7 @@ const Skills: FC<SkillsProps> = ({}) => {
       overflow="hidden"
       container
       alignContent="flex-start"
-      p={["0px", "40px"]}
+      p={["10px", "40px"]}
     >
       <Grid container item xs={12} py="0px" spacing={3}>
         <Grid container item xs={12} lg={12}>

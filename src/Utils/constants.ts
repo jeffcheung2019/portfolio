@@ -1,7 +1,7 @@
 export const routeNames : {
     [key: string]: string;
 } = {
-    Home: "/portfolio",
+    Home: "/",
     About: "/about",
     Projects: "/projects",
     Skills: "/skills"
