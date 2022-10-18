@@ -63,7 +63,7 @@ const Layout: FC<LayoutProps> = () => {
   };
   return (
     <Grid container height="100%">
-      {location.pathname === routeNames.Home ? null : (
+      {location.pathname.includes(routeNames.Home) ? null : (
         <Drawer
           sx={{
             width: drawerWidth,
@@ -120,10 +120,9 @@ const Layout: FC<LayoutProps> = () => {
         height="100%"
         sx={{
           backgroundColor: colors.spaceCadet,
-          width:
-            location.pathname === routeNames.Home
-              ? "100%"
-              : `calc(100% - ${drawerWidth}px)`,
+          width: location.pathname.includes(routeNames.Home)
+            ? "100%"
+            : `calc(100% - ${drawerWidth}px)`,
         }}
       >
         <PageRoutes />
