@@ -318,6 +318,19 @@ const cloudServicesSkillValues: SkillValue[] = [
     name: "AWS EC2",
     toolUrl: "https://cdn.quantiphi.com/2020/05/aws_ec2-1.jpg",
   },
+  {
+    name: "AWS Secret Manager",
+    toolUrl: "https://opstree.github.io/cloud/static/aws_secret_manager.png",
+  },
+  {
+    name: "AWS KMS",
+    toolUrl: "https://symbols.getvecta.com/stencil_23/6_aws-kms.62bf270314.svg",
+  },
+  {
+    name: "Terraform cloud",
+    toolUrl:
+      "https://d3pbgyccvprzn0.cloudfront.net/CIRC-338983-0a239c26c9/assets/terraform-cloud-logo-81769debed7594dfa089baf99d4a402aedadaaf69303482f37fac40d39e7c047.svg",
+  },
 ];
 
 export default Skills;
