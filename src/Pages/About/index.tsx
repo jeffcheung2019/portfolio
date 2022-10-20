@@ -71,7 +71,7 @@ const About: FC<AboutProps> = ({}) => {
           </Typography>
 
           <Typography fontSize={[14, 16, 18]} sx={{}}>
-            My interests: devOps, cloud services, backend, mobile app, web app.
+            My interests: DevOps, Cloud services, Backend, Mobile app, Web app.
           </Typography>
         </Grid>
 
