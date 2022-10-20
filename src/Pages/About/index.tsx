@@ -69,6 +69,10 @@ const About: FC<AboutProps> = ({}) => {
             I am an extremely curious and self-motivated individual, passionate
             about knowing how everything in web & mobile app development works.
           </Typography>
+
+          <Typography fontSize={[14, 16, 18]} sx={{}}>
+            My interests: devOps, cloud services, backend, mobile app, web app.
+          </Typography>
         </Grid>
 
         <Grid
