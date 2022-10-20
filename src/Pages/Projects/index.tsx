@@ -45,6 +45,13 @@ const workDtls = [
     websiteThumbnailUri: "https://iili.io/tlKnjI.png",
   },
   {
+    website: "AkiraGal",
+    uri: "https://akiragal.com/home",
+    logo: "https://pbs.twimg.com/profile_images/1509118560614121477/fVzskKzc_400x400.jpg",
+    desc: "A deflationary collection of 6,666 web3 virtual AI NFT Galfrens.",
+    websiteThumbnailUri: "https://iili.io/t6hBIV.md.png",
+  },
+  {
     website: "Farmtom",
     uri: "https://farmtom.com/",
     logo: "https://farmtom.com/static/media/logo_farmtom.12a3d0c9.png",
@@ -82,7 +89,7 @@ const Projects: FC<ProjectsProps> = () => {
         </Typography>
       </Grid>
 
-      <Grid container item xs={12} spacing={2} justifyContent="flex-start">
+      <Grid container item xs={12} spacing={4} justifyContent="flex-start">
         {map(workDtls, (e, idx) => {
           return (
             <Grid
@@ -93,7 +100,14 @@ const Projects: FC<ProjectsProps> = () => {
               lg={4}
               key={`work-${idx}`}
               width="100%"
-              sx={{}}
+              sx={{
+                transition: "all ease-in-out 0.5s",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
+                cursor: "pointer",
+                animation: "appear 2s",
+              }}
             >
               <Card
                 sx={{
